@@ -1,20 +1,48 @@
-Yii 2 Advanced Project Template
-===============================
+# Computer market @ Crazyheal Inc.
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+## Проектирование
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+### Структура базы данных
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+- **Пользователи**
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
+Каждый пользователь имеет свою роль (реализовано: admin, user; в будущем планируется добавить роль manager - ответственный за целостность данных и проверку корректности данных, moderator - online помощник, консультат (мб просто реализовать как "Телефон службы поддержки")).
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+Пользователь с ролью admin не имеет ограничений в функционале.
+
+Пользователь с ролью user не имеет доступ к администрированию приложения.
+
+- **Компьютеры**
+
+- **Комплектующие системного блока**
+
+Т.к. количество устройств компьютера ограничено будет создана таблица для каждого устройства (процессор, видеокарта, etc.) с полями, которые будут соответствовать их основным характеристикам. Также необходимо иметь поле цены и поле доступности (после анализа документов наиактуальнейшей даты от поставщика будет отредактировано поле "доступность" и будет реализована проверка на достпуность при выводе шаблнов/генерации компьютера, если устройство недоступно для заказа, то пользователь не будет иметь возможности его заказать).
+
+Список комплектующих: processor, videocard, motherboard, ram_module, cooler, power_supply, case (корпус), hdd, ssd, audiocard
+
+- **Перефирия**
+
+Устройства для перефирии не будут иметь связей с комплектующими. Они носят чисто индивидуальный характер для каждого пользователя.
+ 
+Список переферийных устройств: mouse, keyboard, monitor.
+- **Документы (расчетные чеки, прайс, договор о продаже)**
+
+### Функционал
+
+- **Сбор компьютера**
+
+- **Шаблоны компьютеров**
+
+- **Генерация чека**
+
+- **Email сервис**
+
+
+### Документы 
+
+## Реализовано
+
+Скоро опишу, влом писать. 
 
 DIRECTORY STRUCTURE
 -------------------
@@ -53,4 +81,3 @@ frontend
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
 ```
-README will be here.. soon.

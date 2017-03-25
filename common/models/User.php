@@ -186,4 +186,19 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * Getting username by $id
+     * @param $id
+     * @return string
+     */
+    public static function getUsername($id)
+    {
+        $user = self::findIdentity($id);
+        if (isset($user->username) && !empty($user->username)) {
+            return $user->username;
+        } else {
+            return 'username_undefined';
+        }
+    }
 }

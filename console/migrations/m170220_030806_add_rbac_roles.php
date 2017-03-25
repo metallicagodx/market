@@ -5,7 +5,7 @@ use common\models\User;
 
 class m170220_030806_add_rbac_roles extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $role = Yii::$app->authManager->createRole('admin');
         $role->description = 'Администратор';
@@ -24,7 +24,7 @@ class m170220_030806_add_rbac_roles extends Migration
         //Yii::$app->authManager->assign($userRole, User::findByUsername('banned')->getId());
     }
 
-    public function down()
+    public function safeDown()
     {
         Yii::$app->authManager->revokeAll(User::findByUsername('admin')->getId());
         Yii::$app->authManager->revokeAll(User::findByUsername('user')->getId());
